@@ -1,5 +1,18 @@
-# pyfreebilling_17_docker
 
-# Run billing
-# docker-compose build
-# docker-compose up -d
+# docker-freeswitch
+
+Run Pyfreebilling in a Docker container
+
+## Usage
+
+### Build
+
+    $ docker-compose build .
+
+### Run
+
+Foreground:
+
+    $ docker-compose up -d
+
+
