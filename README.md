@@ -21,5 +21,5 @@ Foreground:
      Login:Admin
      Pass :Admin
 ### Setup env
-    Uncoment 38 line 
+    Uncoment 38 line docker-compose.yml
      - # network_mode: host
