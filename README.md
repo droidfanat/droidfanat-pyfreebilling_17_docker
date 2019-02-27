@@ -5,6 +5,10 @@ Run Pyfreebilling in a Docker container
 
 ## Usage
 
+### Clone
+   
+    $ git clone 
+
 ### Build
 
     $ docker-compose build .
