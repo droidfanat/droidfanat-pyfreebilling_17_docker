@@ -1,0 +1,8 @@
+freeswitch:
+  tty: true
+  image: flaccid/freeswitch
+  stdin_open: true
+  net: host
+  environment:
+    DEFAULT_PASSWORD: s3cure
+    EC2: 'true'

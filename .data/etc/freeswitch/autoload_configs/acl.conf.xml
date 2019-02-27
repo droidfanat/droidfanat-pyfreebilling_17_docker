@@ -1,0 +1,18 @@
+<configuration name="acl.conf" description="Network Lists">
+  <network-lists>
+
+    <list name="domains" default="deny">
+       <node type="allow" cidr="192.168.48.4/32"/>
+       <node type="allow" cidr="xxx.xxx.xxx.0/24"/>
+      <!-- domain= is special it scans the domain from the directory to build the ACL -->
+      <node type="allow" domain="$${domain}"/>
+      <!-- use cidr= if you wish to allow ip ranges to this domains acl. -->
+      <!-- <node type="allow" cidr="192.168.0.0/24"/> -->
+    </list>
+   <list name="loopback.auto" default="allow">
+      <node type="allow" cidr="172.31.0.0/16"/>
+      <node type="allow" cidr="52.67.85.153/32"/> 
+   </list>
+  </network-lists>
+</configuration>
+

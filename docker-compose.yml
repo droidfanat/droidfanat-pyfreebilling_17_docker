@@ -1,0 +1,38 @@
+version: '2'
+services:
+  freeswitch:
+    tty: true
+    build: ./freeswitch
+    #image: flaccid/freeswitch
+    stdin_open: true
+   # network_mode: host
+    volumes:
+      - ./.data/etc/freeswitch:/etc/freeswitch
+    environment:
+      DEFAULT_PASSWORD: ss3cure
+    #command: bash -c "while true; do echo hello; sleep 2; done"
+  postgres:
+    build:
+      context: .
+      dockerfile: ./postgres/Dockerfile
+    image: pyfreebilling_postgres
+    volumes:
+      - ./.db:/var/lib/postgresql/data
+      - ./.db./bc:/backups
+    env_file:
+      - ./.envs/.postgres
+    ports:
+      - "0.0.0.0:5432:5432"
+
+  pyfreebill:
+    build: ./pyfreebill
+    ports:
+      - '80:80'
+      - '443:443'
+    volumes:
+      - ./apache/sites-enabled:/etc/apache2/sites-enabled/
+      - ./.data/etc/ssl/private:/etc/ssl/private
+      - ./.data/etc/freeswitch:/usr/local/freeswitch/conf
+    depends_on:
+      - postgres
+      - freeswitch 

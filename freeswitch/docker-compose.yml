@@ -1,0 +1,26 @@
+version: '2'
+services:
+  freeswitch:
+    tty: true
+    image: flaccid/freeswitch
+    stdin_open: true
+    network_mode: host
+    volumes:
+    - /srv/crm.lfs.oro/crt/crm.1stlfs.com/:/crt
+    environment:
+      DEFAULT_PASSWORD: ss3cure
+    #command: bash -c "while true; do echo hello; sleep 2; done"
+
+  #nginx:
+   # image: nginx:latest
+    #ports:
+    #  - "5067:5066"
+   # volumes:
+   #   - /srv/crm.lfs.oro/crt/crm.1stlfs.com/:/crt
+   #   - ./nginx.conf:/etc/nginx/conf.d/default.conf
+   # network_mode: host
+    #links:
+    #  - php
+    #depends_on:
+    # - freeswitch
+    #command: bash -c "while true; do echo hello; sleep 2; done"
