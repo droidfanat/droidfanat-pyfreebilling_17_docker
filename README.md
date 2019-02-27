@@ -16,4 +16,10 @@ Run Pyfreebilling in a Docker container
 Foreground:
     $ docker-compose up -d
 
-
+### Http 
+     https://You ip
+     Login:Admin
+     Pass :Admin
+### Setup env
+    Uncoment 38 line 
+     - # network_mode: host
